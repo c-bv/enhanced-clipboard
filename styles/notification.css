@@ -1,0 +1,127 @@
+@font-face {
+  font-family: "UbuntuMono";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/UbuntuMono-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "UbuntuMono";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/UbuntuMono-Bold.ttf");
+  font-weight: bold;
+}
+@-webkit-keyframes progress-bar {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+@keyframes progress-bar {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+@-webkit-keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes slideOutToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes slideOutToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+#notifications-container {
+  z-index: 9999;
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  display: flex;
+  flex-direction: column-reverse;
+  font-family: UbuntuMono !important;
+}
+#notifications-container * {
+  all: unset;
+}
+#notifications-container .notification {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3em;
+  width: 320px;
+  margin-bottom: 1rem;
+  padding: 0.5em;
+  color: #fff;
+  background-color: #121212;
+  border-radius: 4px;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-animation: 250ms ease slideInFromRight, 250ms ease 2750ms slideOutToRight forwards;
+          animation: 250ms ease slideInFromRight, 250ms ease 2750ms slideOutToRight forwards;
+}
+#notifications-container .notification .notification-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+  margin: auto 0;
+  padding: 6px;
+  font-size: 0.9em;
+  overflow: hidden;
+}
+#notifications-container .notification .notification-content .notification-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#notifications-container .notification .notification-close {
+  align-self: flex-start;
+  opacity: 0.7;
+  transition: 250ms ease;
+}
+#notifications-container .notification .notification-close:hover {
+  opacity: 1;
+}
+#notifications-container .notification .progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  transform-origin: left;
+  -webkit-animation: progress-bar 2500ms 250ms linear forwards;
+          animation: progress-bar 2500ms 250ms linear forwards;
+}
+#notifications-container .notification .progress-bar.copy {
+  background-color: #1976d2;
+}
+#notifications-container .notification .progress-bar.delete, #notifications-container .notification .progress-bar.clear {
+  background-color: #e74c3c;
+}/*# sourceMappingURL=notification.css.map */

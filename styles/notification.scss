@@ -1,0 +1,81 @@
+@import 'globals';
+
+#notifications-container {
+    z-index: 9999;
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    display: flex;
+    flex-direction: column-reverse;
+    font-family: UbuntuMono !important;
+
+    * {
+        all: unset;
+    }
+
+    .notification {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 3em;
+        width: 320px;
+        margin-bottom: 1rem;
+        padding: 0.5em;
+        color: #fff;
+        background-color: $notification-bg;
+        border-radius: 4px;
+        box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.10), 0 2px 15px 0 rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        cursor: pointer;
+        animation:
+            250ms ease slideInFromRight,
+            250ms ease 2750ms slideOutToRight forwards;
+
+        .notification-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5em;
+            margin: auto 0;
+            padding: 6px;
+            font-size: 0.9em;
+            overflow: hidden;
+
+            .notification-text {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+
+        .notification-close {
+            align-self: flex-start;
+            opacity: .7;
+            transition: 250ms ease;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 5px;
+            width: 100%;
+            transform-origin: left;
+            animation: progress-bar 2500ms 250ms linear forwards;
+
+            &.copy {
+                background-color: $accent-color;
+            }
+
+            &.delete,
+            &.clear {
+                background-color: $error-color;
+            }
+        }
+    }
+}

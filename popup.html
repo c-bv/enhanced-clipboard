@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8' />
+    <link rel='stylesheet' href='./styles/popup.css' />
+    <title>Click copier</title>
+</head>
+
+<body>
+    <header>
+        <div id='title-container'>
+            <img src='./images/icon.svg' alt='Click copier' />
+            <span id='title-text'>Click copier</span>
+        </div>
+        <div id='settings-container'>
+            <div id='settings-button'>
+                <img src='./images/settings.svg' alt='Settings' />
+            </div>
+            <div id='settings-menu'>
+                <label for='jira-mode' class='settings-menu-item'>
+                    <input type='checkbox' id='jira-mode' />
+                    Jira mode
+                </label>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id='clipboard-toolbar'>
+            <div id='clear-clipboard-button'>
+                <img src='./images/clear.svg' alt='Clear clipboard' />
+            </div>
+        </div>
+        <section id='clipboard-container'></section>
+    </main>
+    <script src='./scripts/popup.js'></script>
+</body>
+
+</html>

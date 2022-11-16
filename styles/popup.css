@@ -1,0 +1,226 @@
+@font-face {
+  font-family: "UbuntuMono";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/UbuntuMono-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "UbuntuMono";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/UbuntuMono-Bold.ttf");
+  font-weight: bold;
+}
+@-webkit-keyframes progress-bar {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+@keyframes progress-bar {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+@-webkit-keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes slideOutToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes slideOutToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  height: 500px;
+  width: 300px;
+  font-family: "UbuntuMono", monospace;
+  background-color: #24292e;
+  color: #fff;
+}
+body header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+  height: 4.5em;
+  background-color: rgb(18, 18, 18);
+  border-bottom: 2px solid #1976d2;
+}
+body header #title-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+body header #title-container #title-text {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+body header #settings-container #settings-button {
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.5;
+  transition: 250ms ease;
+}
+body header #settings-container #settings-button:hover {
+  opacity: 1;
+}
+body header #settings-container #settings-menu {
+  display: none;
+  position: absolute;
+  top: calc(4.5em - 2px);
+  right: 0;
+  height: 5em;
+  width: 100%;
+  padding: 0.5em 1em;
+  background-color: rgba(18, 18, 18, 0.7);
+  border: 2px solid #1976d2;
+  border-width: 2px 0 2px 0;
+  z-index: 1;
+}
+body header #settings-container #settings-menu.active {
+  display: block;
+}
+body header #settings-container #settings-menu .settings-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 0;
+  cursor: pointer;
+}
+body main {
+  padding: 1em;
+  height: calc(100% - 4.5em);
+  overflow: hidden;
+  background-color: rgb(31, 36, 40);
+  display: flex;
+  flex-direction: column;
+}
+body main #clipboard-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+body main #clipboard-toolbar #clear-clipboard-button {
+  position: relative;
+  margin-left: auto;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 250ms ease;
+}
+body main #clipboard-toolbar #clear-clipboard-button:hover {
+  opacity: 1;
+}
+body main #clipboard-toolbar #clear-clipboard-button:hover:after {
+  content: "Clear Clipboard";
+  position: absolute;
+  top: 100%;
+  left: 100%;
+  transform: translate(-100%, 0);
+  padding: 0.5em;
+  background-color: #121212;
+  border-radius: 2px;
+  font-size: 0.8em;
+  color: #fff;
+  white-space: nowrap;
+}
+body main #clipboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  overflow-y: auto;
+}
+body main #clipboard-container .item-container {
+  display: flex;
+  gap: 0.5em;
+  padding: 0.5em;
+  background-color: #121212;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 250ms ease;
+}
+body main #clipboard-container .item-container:hover {
+  background-color: rgba(18, 18, 18, 0.7);
+}
+body main #clipboard-container .item-container .item-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+body main #clipboard-container .item-container .item-content .item-text {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+body main #clipboard-container .item-container .item-content .item-date {
+  font-size: 0.8rem;
+}
+body main #clipboard-container .item-container .item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+body main #clipboard-container .item-container .item-actions .item-action {
+  height: 1.5em;
+  opacity: 0.5;
+  transition: 250ms ease;
+  cursor: pointer;
+}
+body main #clipboard-container .item-container .item-actions .item-action:hover {
+  opacity: 1;
+}
+
+*::-webkit-scrollbar {
+  width: 2px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 255, 255);
+}/*# sourceMappingURL=popup.css.map */

@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "UbuntuMono";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/UbuntuMono-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "UbuntuMono";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/UbuntuMono-Bold.ttf");
+  font-weight: bold;
+}
+@-webkit-keyframes progress-bar {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+@keyframes progress-bar {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+@-webkit-keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes slideOutToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes slideOutToRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}/*# sourceMappingURL=globals.css.map */

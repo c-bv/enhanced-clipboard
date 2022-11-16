@@ -1,0 +1,49 @@
+$background-color: #24292e;
+$secondary-bg: rgba(31, 36, 40, 1);
+$notification-bg: #121212;
+
+$accent-color: #1976d2;
+$error-color: #e74c3c;
+$success-color: #2ecc71;
+
+@font-face {
+    font-family: 'UbuntuMono';
+    src: url('chrome-extension://__MSG_@@extension_id__/fonts/UbuntuMono-Regular.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'UbuntuMono';
+    src: url('chrome-extension://__MSG_@@extension_id__/fonts/UbuntuMono-Bold.ttf');
+    font-weight: bold;
+}
+
+@keyframes progress-bar {
+    0% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}

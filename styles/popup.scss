@@ -1,0 +1,197 @@
+@import 'globals';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    font-size: 16px;
+}
+
+body {
+    height: 500px;
+    width: 300px;
+    font-family: 'UbuntuMono', monospace;
+    background-color: $background-color;
+    color: #fff;
+
+    header {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1em;
+        height: 4.5em;
+        background-color: rgba(18, 18, 18, 1);
+        border-bottom: 2px solid $accent-color;
+
+        #title-container {
+            display: flex;
+            align-items: center;
+            gap: .5em;
+
+            #title-text {
+                font-size: 1.5em;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+
+        #settings-container {
+
+            #settings-button {
+                cursor: pointer;
+                font-size: 1.2rem;
+                opacity: .5;
+                transition: 250ms ease;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            #settings-menu {
+                display: none;
+                position: absolute;
+                top: calc(4.5em - 2px);
+                right: 0;
+                height: 5em;
+                width: 100%;
+                padding: .5em 1em;
+                background-color: rgba(18, 18, 18, 0.7);
+                border: 2px solid $accent-color;
+                border-width: 2px 0 2px 0;
+                z-index: 1;
+
+                &.active {
+                    display: block;
+                }
+
+                .settings-menu-item {
+                    display: flex;
+                    align-items: center;
+                    gap: .5em;
+                    padding: .5em 0;
+                    cursor: pointer;
+
+                }
+            }
+        }
+    }
+
+    main {
+        padding: 1em;
+        height: calc(100% - 4.5em);
+        overflow: hidden;
+        background-color: $secondary-bg;
+        display: flex;
+        flex-direction: column;
+
+        #clipboard-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: .5em;
+            margin-bottom: 1em;
+
+            #clear-clipboard-button {
+                position: relative;
+                margin-left: auto;
+                font-size: 1.2rem;
+                cursor: pointer;
+                opacity: .5;
+                transition: 250ms ease;
+
+                &:hover {
+                    opacity: 1;
+
+                    &:after {
+                        content: 'Clear Clipboard';
+                        position: absolute;
+                        top: 100%;
+                        left: 100%;
+                        transform: translate(-100%, 0);
+                        padding: .5em;
+                        background-color: $notification-bg;
+                        border-radius: 2px;
+                        font-size: .8em;
+                        color: #fff;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+
+        #clipboard-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            overflow-y: auto;
+
+            .item-container {
+                display: flex;
+                gap: .5em;
+                padding: .5em;
+                background-color: $notification-bg;
+                border-radius: 2px;
+                cursor: pointer;
+                transition: 250ms ease;
+
+                &:hover {
+                    background-color: rgba(18, 18, 18, 0.7);
+                }
+
+                .item-content {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    overflow: hidden;
+
+                    .item-text {
+                        width: 100%;
+                        font-size: 1rem;
+                        font-weight: bold;
+                        // text-transform: uppercase;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+
+                    .item-date {
+                        font-size: .8rem;
+                    }
+                }
+
+                .item-actions {
+                    display: flex;
+                    align-items: center;
+                    gap: .5em;
+
+                    .item-action {
+                        height: 1.5em;
+                        opacity: .5;
+                        transition: 250ms ease;
+                        cursor: pointer;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+*::-webkit-scrollbar {
+    width: 2px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 255, 255);
+}
