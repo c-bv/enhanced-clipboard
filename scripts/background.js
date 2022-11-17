@@ -1,4 +1,10 @@
+chrome.storage.sync.get(['clipboard'], (result) => {
+    chrome.action.setBadgeText({ text: `${result.clipboard.length}` });
+    chrome.action.setBadgeBackgroundColor({ color: '#4688F1' });
+});
+
 chrome.storage.onChanged.addListener((changes, areaName) => {
+
     if (changes.clipboard) {
         const oldClipboard = changes.clipboard.oldValue;
         const newClipboard = changes.clipboard.newValue;
@@ -26,22 +32,11 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
     }
 
     if (changes.settings) {
-        const settings = changes.settings;
-        console.log('settings changed');
-        const oldSettings = settings.oldValue;
-        const newSettings = settings.newValue;
-        console.log(settings);
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             chrome.tabs.sendMessage(tabs[0].id, {
                 message: 'settings changed',
-                data: newSettings
+                data: changes.settings.newValue
             });
         });
     }
 });
-
-navigator.clipboard
-
-
-// chrome.action.setBadgeText({ text: `${clipboard.length}` });
-chrome.action.setBadgeBackgroundColor({ color: '#4688F1' });

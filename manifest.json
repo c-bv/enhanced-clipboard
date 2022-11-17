@@ -1,6 +1,6 @@
 {
-    "name": "Click copier",
-    "description": "Simple click copier",
+    "name": "Clipboard",
+    "description": "Simple clipboard manager",
     "version": "1.0.0",
     "manifest_version": 3,
     "icons": {
@@ -10,7 +10,7 @@
         "128": "images/icon128.png"
     },
     "action": {
-        "default_title": "Click copier",
+        "default_title": "Clipboard",
         "default_popup": "popup.html"
     },
     "content_scripts": [

@@ -6,25 +6,28 @@ window.onload = () => {
 
 (async () => {
     const clipboard = await import(chrome.runtime.getURL('scripts/clipboard.js'));
-    document.addEventListener('copy', () => {
-        const selection = window.getSelection().toString();
-        clipboard.storeItem(selection);
-    });
-
     const notification = await import(chrome.runtime.getURL('scripts/notification.js'));
+
+    // Handle notifications
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         const { message, status, data } = request;
         message === 'clipboard changed' && notification.pushNotification(status, data);
     });
 
-    document.addEventListener('mouseover', (e) => {
-        const pointerPosition = document.elementFromPoint(e.clientX, e.clientY);
+    // Handle clipboard
+    let mousePosition;
 
-        pointerPosition.parentElement.getAttribute('role') === 'presentation' && (
-            document.addEventListener('copy', () => {
-                const selection = pointerPosition.textContent;
-                clipboard.storeItem(selection);
-            })
-        );
+    document.addEventListener('mousemove', (e) => {
+        mousePosition = { x: e.clientX, y: e.clientY };
+    });
+
+    document.addEventListener('copy', () => {
+        const targetElement = document.elementFromPoint(mousePosition.x, mousePosition.y)
+        const selection = window.getSelection().toString();
+
+        selection ?
+            clipboard.storeItem(selection)
+            :
+            (targetElement.classList.contains('sc-15cfu5s-1')) && clipboard.storeItem(targetElement.innerText);
     });
 })();
