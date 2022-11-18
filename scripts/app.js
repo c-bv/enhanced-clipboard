@@ -25,9 +25,11 @@ window.onload = () => {
         const targetElement = document.elementFromPoint(mousePosition.x, mousePosition.y)
         const selection = window.getSelection().toString();
 
-        selection ?
+        if (selection) {
             clipboard.storeItem(selection)
-            :
-            (targetElement.classList.contains('sc-15cfu5s-1')) && clipboard.storeItem(targetElement.innerText);
+        } else if (targetElement.classList.contains('sc-15cfu5s-1')) {
+            navigator.clipboard.writeText(targetElement.innerText);
+            clipboard.storeItem(targetElement.innerText)
+        }
     });
 })();
