@@ -1,13 +1,3 @@
-@font-face {
-  font-family: "UbuntuMono";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/UbuntuMono-Regular.ttf");
-  font-weight: normal;
-}
-@font-face {
-  font-family: "UbuntuMono";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/UbuntuMono-Bold.ttf");
-  font-weight: bold;
-}
 @-webkit-keyframes progress-bar {
   0% {
     transform: scaleX(1);
@@ -56,6 +46,27 @@
     transform: translateX(100%);
   }
 }
+@font-face {
+  font-family: "DMSans";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "DMSans";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "DMSans";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-MediumItalic.ttf");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "DMSans";
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Bold.ttf");
+  font-weight: 700;
+}
 #notifications-container {
   z-index: 9999;
   position: fixed;
@@ -63,7 +74,7 @@
   right: 1em;
   display: flex;
   flex-direction: column-reverse;
-  font-family: UbuntuMono !important;
+  font-family: sans-serif;
 }
 #notifications-container * {
   all: unset;
@@ -120,8 +131,8 @@
           animation: progress-bar 2500ms 250ms linear forwards;
 }
 #notifications-container .notification .progress-bar.copy {
-  background-color: #1976d2;
+  background-color: #1f6feb;
 }
 #notifications-container .notification .progress-bar.delete, #notifications-container .notification .progress-bar.clear {
-  background-color: #e74c3c;
+  background-color: #da3633;
 }/*# sourceMappingURL=notification.css.map */

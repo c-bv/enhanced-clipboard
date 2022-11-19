@@ -8,16 +8,26 @@
     padding: 0;
 }
 
+*::-webkit-scrollbar {
+    width: 2px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: $color-fg-muted;
+}
+
 :root {
     font-size: 16px;
 }
 
 body {
     height: 500px;
-    width: 300px;
-    font-family: 'UbuntuMono', monospace;
+    width: 325px;
+    font-family: $font-family;
+    line-height: 1.5;
     background-color: $background-color;
-    color: #fff;
+    color: $color-fg-default;
+    border: 1px solid $border-color;
 
     header {
         position: relative;
@@ -26,8 +36,9 @@ body {
         align-items: center;
         padding: 0 1em;
         height: 4.5em;
-        background-color: rgba(18, 18, 18, 1);
-        border-bottom: 2px solid $accent-color;
+        color: $color-header-text;
+        background-color: $primary-color;
+        border-bottom: 1px solid $border-color;
 
         #title-container {
             display: flex;
@@ -36,18 +47,18 @@ body {
 
             #title-text {
                 font-size: 1.5em;
-                font-weight: bold;
-                text-transform: uppercase;
+                font-weight: 600;
             }
         }
 
         #settings-container {
+            display: flex;
 
             #settings-button {
-                cursor: pointer;
-                font-size: 1.2rem;
+                display: flex;
                 opacity: .5;
                 transition: 250ms ease;
+                cursor: pointer;
 
                 &:hover {
                     opacity: 1;
@@ -84,27 +95,44 @@ body {
     }
 
     main {
-        padding: 1em;
-        height: calc(100% - 4.5em);
-        overflow: hidden;
-        background-color: $secondary-bg;
         display: flex;
         flex-direction: column;
+        height: calc(100% - 4.5em);
+        padding: 1em;
+        overflow: hidden;
+        background-color: $background-color;
 
         #clipboard-toolbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: .5em;
+            gap: 1em;
             margin-bottom: 1em;
+            padding: 0 .25em;
+
+            #searchbar {
+                flex: 1;
+                height: 2em;
+                padding: 0 .5em;
+                border: 1px solid $border-color;
+                border-radius: 2px;
+                font-size: 0.9rem;
+                background-color: transparent;
+                color: $color-fg-default;
+
+                &:focus {
+                    outline: none;
+                    color: $color-fg-muted;
+                }
+            }
 
             #clear-clipboard-button {
                 position: relative;
-                margin-left: auto;
-                font-size: 1.2rem;
-                cursor: pointer;
+                display: flex;
                 opacity: .5;
                 transition: 250ms ease;
+                font-size: 1.2rem;
+                cursor: pointer;
 
                 &:hover {
                     opacity: 1;
@@ -116,11 +144,11 @@ body {
                         left: 100%;
                         transform: translate(-100%, 0);
                         padding: .5em;
-                        background-color: $notification-bg;
+                        background-color: $color-bg-card-hover;
                         border-radius: 2px;
-                        font-size: .8em;
-                        color: #fff;
+                        font-size: .75em;
                         white-space: nowrap;
+                        z-index: 1;
                     }
                 }
             }
@@ -136,13 +164,19 @@ body {
                 display: flex;
                 gap: .5em;
                 padding: .5em;
-                background-color: $notification-bg;
-                border-radius: 2px;
+                margin: 0 .25em;
+                border: 1px solid $border-color;
+                border-radius: 1px;
+                background-color: $color-bg-card;
                 cursor: pointer;
-                transition: 250ms ease;
 
                 &:hover {
-                    background-color: rgba(18, 18, 18, 0.7);
+                    background-color: $color-bg-card-hover;
+
+                    .item-text {
+                        color: $accent-color;
+                        text-decoration: underline;
+                    }
                 }
 
                 .item-content {
@@ -155,15 +189,15 @@ body {
                     .item-text {
                         width: 100%;
                         font-size: 1rem;
-                        font-weight: bold;
-                        // text-transform: uppercase;
                         overflow: hidden;
                         text-overflow: ellipsis;
                         white-space: nowrap;
                     }
 
                     .item-date {
-                        font-size: .8rem;
+                        font-size: .75rem;
+                        font-style: italic;
+                        color: $color-fg-muted;
                     }
                 }
 
@@ -173,7 +207,6 @@ body {
                     gap: .5em;
 
                     .item-action {
-                        height: 1.5em;
                         opacity: .5;
                         transition: 250ms ease;
                         cursor: pointer;
@@ -186,12 +219,4 @@ body {
             }
         }
     }
-}
-
-*::-webkit-scrollbar {
-    width: 2px;
-}
-
-*::-webkit-scrollbar-thumb {
-    background-color: rgb(255, 255, 255);
 }

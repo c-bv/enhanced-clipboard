@@ -7,7 +7,7 @@
     right: 1em;
     display: flex;
     flex-direction: column-reverse;
-    font-family: UbuntuMono !important;
+    font-family: $font-family;
 
     * {
         all: unset;
@@ -74,7 +74,7 @@
 
             &.delete,
             &.clear {
-                background-color: $error-color;
+                background-color: $color-error-emphasis;
             }
         }
     }

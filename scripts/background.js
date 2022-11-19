@@ -1,10 +1,11 @@
-chrome.storage.sync.get(['clipboard'], (result) => {
-    chrome.action.setBadgeText({ text: `${result.clipboard.length}` });
+chrome.runtime.onStartup.addListener(() => {
+    chrome.storage.sync.get(['clipboard'], (result) => {
+        chrome.action.setBadgeText({ text: `${result.clipboard.length}` });
+    });
     chrome.action.setBadgeBackgroundColor({ color: '#4688F1' });
 });
 
 chrome.storage.onChanged.addListener((changes, areaName) => {
-
     if (changes.clipboard) {
         const oldClipboard = changes.clipboard.oldValue;
         const newClipboard = changes.clipboard.newValue;

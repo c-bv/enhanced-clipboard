@@ -1,22 +1,25 @@
-$background-color: #24292e;
+$font-family: sans-serif;
+
 $secondary-bg: rgba(31, 36, 40, 1);
 $notification-bg: #121212;
 
-$accent-color: #1976d2;
-$error-color: #e74c3c;
-$success-color: #2ecc71;
+$background-color: rgb(1, 4, 9);
+$primary-color: rgb(22, 27, 34);
 
-@font-face {
-    font-family: 'UbuntuMono';
-    src: url('chrome-extension://__MSG_@@extension_id__/fonts/UbuntuMono-Regular.ttf');
-    font-weight: normal;
-}
+$color-bg-card: #0d1117;
+$color-bg-card-hover: #161B22;
 
-@font-face {
-    font-family: 'UbuntuMono';
-    src: url('chrome-extension://__MSG_@@extension_id__/fonts/UbuntuMono-Bold.ttf');
-    font-weight: bold;
-}
+$quaternary-color: #bdc7db;
+$border-color: #21262d;
+
+$color-header-text: #f0f6fc;
+$color-fg-default: #c9d1d9;
+$color-fg-muted: #8b949e;
+
+$accent-color: #58a6ff;
+$color-error-fg: #f85149;
+$color-error-emphasis: #da3633;
+
 
 @keyframes progress-bar {
     0% {
@@ -46,4 +49,29 @@ $success-color: #2ecc71;
     100% {
         transform: translateX(100%);
     }
+}
+
+@font-face {
+    font-family: 'DMSans';
+    src: url('chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Regular.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'DMSans';
+    src: url('chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'DMSans';
+    src: url('chrome-extension://__MSG_@@extension_id__/fonts/DMSans-MediumItalic.ttf');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DMSans';
+    src: url('chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Bold.ttf');
+    font-weight: 700;
 }
