@@ -131,7 +131,7 @@
           animation: progress-bar 2500ms 250ms linear forwards;
 }
 #notifications-container .notification .progress-bar.copy {
-  background-color: #1f6feb;
+  background-color: #58a6ff;
 }
 #notifications-container .notification .progress-bar.delete, #notifications-container .notification .progress-bar.clear {
   background-color: #da3633;

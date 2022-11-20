@@ -1,12 +1,18 @@
-window.onload = () => {
+chrome.storage.sync.get(['enabled'], (result) => {
+    result.enabled && appScript();
+});
+
+chrome.storage.onChanged.addListener((changes, areaName) => {
+    if (changes.enabled) changes.enabled.newValue ? appScript() : location.reload();
+});
+
+const appScript = async () => {
+    const clipboard = await import(chrome.runtime.getURL('scripts/clipboard.js'));
+    const notification = await import(chrome.runtime.getURL('scripts/notification.js'));
+
     const notificationsContainer = document.createElement('div');
     notificationsContainer.id = 'notifications-container';
     document.body.appendChild(notificationsContainer);
-};
-
-(async () => {
-    const clipboard = await import(chrome.runtime.getURL('scripts/clipboard.js'));
-    const notification = await import(chrome.runtime.getURL('scripts/notification.js'));
 
     // Handle settings
     let settings = {};
@@ -34,4 +40,4 @@ window.onload = () => {
             clipboard.jiraMode(selection, mousePosition) :
             clipboard.storeItem(selection);
     });
-})();
+};

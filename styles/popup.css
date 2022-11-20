@@ -109,8 +109,11 @@ body header {
 }
 body header #title-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.5em;
+}
+body header #title-container #logo-container.disabled {
+  filter: grayscale(100%) opacity(50%);
 }
 body header #title-container #title-text {
   font-size: 1.5em;
@@ -118,6 +121,17 @@ body header #title-container #title-text {
 }
 body header #settings-container {
   display: flex;
+}
+body header #settings-container #toggle-button {
+  padding: 0.25em 0.5em;
+  background-color: transparent;
+  border: 1px solid #21262d;
+  border-radius: 2px;
+  color: #8b949e;
+  cursor: pointer;
+}
+body header #settings-container #toggle-button.off {
+  color: #58a6ff;
 }
 body header #settings-container #settings-button {
   display: flex;
@@ -152,12 +166,34 @@ body header #settings-container #settings-menu .settings-menu-item {
   cursor: pointer;
 }
 body main {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: calc(100% - 4.5em);
   padding: 1em;
   overflow: hidden;
   background-color: rgb(1, 4, 9);
+}
+body main #disabled-layer {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+body main #disabled-layer.active {
+  display: flex;
+}
+body main #disabled-layer p {
+  font-size: 1rem;
+  color: #8b949e;
+  text-align: center;
 }
 body main #clipboard-toolbar {
   display: flex;
@@ -187,6 +223,8 @@ body main #clipboard-toolbar #clear-clipboard-button {
   opacity: 0.5;
   transition: 250ms ease;
   font-size: 1.2rem;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
 }
 body main #clipboard-toolbar #clear-clipboard-button:hover {

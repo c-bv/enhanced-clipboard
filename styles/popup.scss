@@ -42,8 +42,14 @@ body {
 
         #title-container {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: .5em;
+
+            #logo-container {
+                &.disabled {
+                    filter: grayscale(100%) opacity(50%);
+                }
+            }
 
             #title-text {
                 font-size: 1.5em;
@@ -53,6 +59,20 @@ body {
 
         #settings-container {
             display: flex;
+
+            #toggle-button {
+                // TODO: Switch ?
+                padding: 0.25em 0.5em;
+                background-color: transparent;
+                border: 1px solid $border-color;
+                border-radius: 2px;
+                color: $color-fg-muted;
+                cursor: pointer;
+
+                &.off {
+                    color: $accent-color;
+                }
+            }
 
             #settings-button {
                 display: flex;
@@ -95,12 +115,37 @@ body {
     }
 
     main {
+        position: relative;
         display: flex;
         flex-direction: column;
         height: calc(100% - 4.5em);
         padding: 1em;
         overflow: hidden;
         background-color: $background-color;
+
+        #disabled-layer {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+
+            &.active {
+                display: flex;
+            }
+
+            p {
+                font-size: 1rem;
+                color: $color-fg-muted;
+                text-align: center;
+            }
+        }
 
         #clipboard-toolbar {
             display: flex;
@@ -132,6 +177,8 @@ body {
                 opacity: .5;
                 transition: 250ms ease;
                 font-size: 1.2rem;
+                background-color: transparent;
+                border: none;
                 cursor: pointer;
 
                 &:hover {

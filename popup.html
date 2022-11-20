@@ -10,10 +10,11 @@
 <body>
     <header>
         <div id='title-container'>
-            <img src='./images/icon.svg' alt='Clipboard' />
+            <img id='logo-container' src=' ./images/icon.svg' alt='Clipboard-logo' />
             <span id='title-text'>Clipboard</span>
         </div>
         <div id='settings-container'>
+            <button type='button' id='toggle-button'></button>
             <div id='settings-button'>
                 <img src='./images/settings.svg' alt='Settings' />
             </div>
@@ -26,11 +27,15 @@
         </div>
     </header>
     <main>
+        <div id='disabled-layer'>
+            <p>Clipboard is disabled</p>
+            <p>Toogle the switch to enable it</p>
+        </div>
         <div id='clipboard-toolbar'>
             <input type='text' id='searchbar' placeholder='Search item...' />
-            <div id='clear-clipboard-button'>
+            <button id='clear-clipboard-button'>
                 <img src='./images/clear.svg' alt='Clear clipboard' />
-            </div>
+            </button>
         </div>
         <section id='clipboard-container'></section>
     </main>
