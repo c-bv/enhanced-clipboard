@@ -15,7 +15,7 @@ chrome.storage.sync.get(['enabled'], (result) => {
         toggleExtensionButton.checked = result.enabled,
         document.getElementById('disabled-layer').classList.toggle('active', !result.enabled),
         document.getElementById('logo-container').classList.toggle('disabled', !result.enabled),
-        document.getElementById('toggle-button').innerHTML = result.enabled ? 'OFF' : 'ON';
+        document.getElementById('toggle-button').innerHTML = result.enabled ? 'OFF' : 'ON',
         document.getElementById('toggle-button').classList.toggle('off', !result.enabled);
 });
 

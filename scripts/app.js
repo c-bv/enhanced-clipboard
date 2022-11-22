@@ -1,7 +1,9 @@
+// Check if extension is enabled
 chrome.storage.sync.get(['enabled'], (result) => {
     result.enabled && appScript();
 });
 
+// Handle extension enable/disable
 chrome.storage.onChanged.addListener((changes, areaName) => {
     if (changes.enabled) changes.enabled.newValue ? appScript() : location.reload();
 });

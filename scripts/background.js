@@ -1,3 +1,13 @@
+// Set default settings on install
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.storage.sync.set({
+        enabled: true,
+        settings: { jiraMode: false },
+        clipboard: []
+    });
+});
+
+// Set badge text to number of clipboard items on startup
 chrome.runtime.onStartup.addListener(() => {
     chrome.storage.sync.get(['clipboard'], (result) => {
         chrome.action.setBadgeText({ text: `${result.clipboard.length}` });
@@ -5,6 +15,7 @@ chrome.runtime.onStartup.addListener(() => {
     chrome.action.setBadgeBackgroundColor({ color: '#4688F1' });
 });
 
+// Set badge text to number of clipboard items on clipboard change
 chrome.storage.onChanged.addListener((changes, areaName) => {
     if (changes.clipboard) {
         const oldClipboard = changes.clipboard.oldValue;
