@@ -23,11 +23,10 @@
         margin-bottom: 1rem;
         padding: 0.5em;
         color: #fff;
-        background-color: $notification-bg;
+        background-color: $color-bg-notification;
         border-radius: 4px;
         box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.10), 0 2px 15px 0 rgba(0, 0, 0, 0.05);
         overflow: hidden;
-        cursor: pointer;
         animation:
             250ms ease slideInFromRight,
             250ms ease 2750ms slideOutToRight forwards;
@@ -39,10 +38,10 @@
             gap: 0.5em;
             margin: auto 0;
             padding: 6px;
-            font-size: 0.9em;
             overflow: hidden;
-
+            
             .notification-text {
+                font-size: 0.9rem;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: nowrap;
@@ -53,6 +52,7 @@
             align-self: flex-start;
             opacity: .7;
             transition: 250ms ease;
+            cursor: pointer;
 
             &:hover {
                 opacity: 1;
@@ -69,12 +69,12 @@
             animation: progress-bar 2500ms 250ms linear forwards;
 
             &.copy {
-                background-color: $accent-color;
+                background-color: $color-accent-emphasis;
             }
 
             &.delete,
             &.clear {
-                background-color: $color-error-emphasis;
+                background-color: $color-error;
             }
         }
     }

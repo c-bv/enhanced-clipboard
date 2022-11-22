@@ -46,27 +46,6 @@
     transform: translateX(100%);
   }
 }
-@font-face {
-  font-family: "DMSans";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Regular.ttf");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "DMSans";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Medium.ttf");
-  font-weight: 500;
-}
-@font-face {
-  font-family: "DMSans";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-MediumItalic.ttf");
-  font-weight: 500;
-  font-style: italic;
-}
-@font-face {
-  font-family: "DMSans";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Bold.ttf");
-  font-weight: 700;
-}
 *,
 *::before,
 *::after {
@@ -92,7 +71,7 @@ body {
   width: 325px;
   font-family: sans-serif;
   line-height: 1.5;
-  background-color: rgb(1, 4, 9);
+  background-color: #010409;
   color: #c9d1d9;
   border: 1px solid #21262d;
 }
@@ -104,7 +83,7 @@ body header {
   padding: 0 1em;
   height: 4.5em;
   color: #f0f6fc;
-  background-color: rgb(22, 27, 34);
+  background-color: #161b22;
   border-bottom: 1px solid #21262d;
 }
 body header #title-container {
@@ -172,7 +151,6 @@ body main {
   height: calc(100% - 4.5em);
   padding: 1em;
   overflow: hidden;
-  background-color: rgb(1, 4, 9);
 }
 body main #disabled-layer {
   display: none;
@@ -184,7 +162,7 @@ body main #disabled-layer {
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5019607843);
   z-index: 1;
 }
 body main #disabled-layer.active {
@@ -230,19 +208,6 @@ body main #clipboard-toolbar #clear-clipboard-button {
 body main #clipboard-toolbar #clear-clipboard-button:hover {
   opacity: 1;
 }
-body main #clipboard-toolbar #clear-clipboard-button:hover:after {
-  content: "Clear Clipboard";
-  position: absolute;
-  top: 100%;
-  left: 100%;
-  transform: translate(-100%, 0);
-  padding: 0.5em;
-  background-color: #161B22;
-  border-radius: 2px;
-  font-size: 0.75em;
-  white-space: nowrap;
-  z-index: 1;
-}
 body main #clipboard-container {
   display: flex;
   flex-direction: column;
@@ -260,7 +225,7 @@ body main #clipboard-container .item-container {
   cursor: pointer;
 }
 body main #clipboard-container .item-container:hover {
-  background-color: #161B22;
+  background-color: #161b22;
 }
 body main #clipboard-container .item-container:hover .item-text {
   color: #58a6ff;

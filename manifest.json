@@ -1,5 +1,5 @@
 {
-    "name": "Clipboard",
+    "name": "Enhanced clipboard",
     "description": "Simple clipboard manager",
     "version": "1.0.0",
     "manifest_version": 3,
@@ -10,7 +10,7 @@
         "128": "images/icon128.png"
     },
     "action": {
-        "default_title": "Clipboard",
+        "default_title": "Enhanced clipboard",
         "default_popup": "popup.html"
     },
     "content_scripts": [

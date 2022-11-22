@@ -46,27 +46,6 @@
     transform: translateX(100%);
   }
 }
-@font-face {
-  font-family: "DMSans";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Regular.ttf");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "DMSans";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Medium.ttf");
-  font-weight: 500;
-}
-@font-face {
-  font-family: "DMSans";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-MediumItalic.ttf");
-  font-weight: 500;
-  font-style: italic;
-}
-@font-face {
-  font-family: "DMSans";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Bold.ttf");
-  font-weight: 700;
-}
 #notifications-container {
   z-index: 9999;
   position: fixed;
@@ -93,7 +72,6 @@
   border-radius: 4px;
   box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);
   overflow: hidden;
-  cursor: pointer;
   -webkit-animation: 250ms ease slideInFromRight, 250ms ease 2750ms slideOutToRight forwards;
           animation: 250ms ease slideInFromRight, 250ms ease 2750ms slideOutToRight forwards;
 }
@@ -104,10 +82,10 @@
   gap: 0.5em;
   margin: auto 0;
   padding: 6px;
-  font-size: 0.9em;
   overflow: hidden;
 }
 #notifications-container .notification .notification-content .notification-text {
+  font-size: 0.9rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -116,6 +94,7 @@
   align-self: flex-start;
   opacity: 0.7;
   transition: 250ms ease;
+  cursor: pointer;
 }
 #notifications-container .notification .notification-close:hover {
   opacity: 1;
@@ -131,7 +110,7 @@
           animation: progress-bar 2500ms 250ms linear forwards;
 }
 #notifications-container .notification .progress-bar.copy {
-  background-color: #58a6ff;
+  background-color: #1f6feb;
 }
 #notifications-container .notification .progress-bar.delete, #notifications-container .notification .progress-bar.clear {
   background-color: #da3633;

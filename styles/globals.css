@@ -45,25 +45,4 @@
   100% {
     transform: translateX(100%);
   }
-}
-@font-face {
-  font-family: "DMSans";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Regular.ttf");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "DMSans";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Medium.ttf");
-  font-weight: 500;
-}
-@font-face {
-  font-family: "DMSans";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-MediumItalic.ttf");
-  font-weight: 500;
-  font-style: italic;
-}
-@font-face {
-  font-family: "DMSans";
-  src: url("chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Bold.ttf");
-  font-weight: 700;
 }/*# sourceMappingURL=globals.css.map */

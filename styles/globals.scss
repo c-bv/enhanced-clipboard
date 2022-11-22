@@ -1,25 +1,17 @@
 $font-family: sans-serif;
 
-$secondary-bg: rgba(31, 36, 40, 1);
-$notification-bg: #121212;
-
-$background-color: rgb(1, 4, 9);
-$primary-color: rgb(22, 27, 34);
-
-$color-bg-card: #0d1117;
-$color-bg-card-hover: #161B22;
-
-$quaternary-color: #bdc7db;
-$border-color: #21262d;
-
 $color-header-text: #f0f6fc;
 $color-fg-default: #c9d1d9;
 $color-fg-muted: #8b949e;
-
-$accent-color: #58a6ff;
-$color-error-fg: #f85149;
-$color-error-emphasis: #da3633;
-
+$color-bg-default: #010409;
+$color-bg-disabled: #00000080;
+$color-bg-secondary: #161b22;
+$color-bg-card: #0d1117;
+$color-bg-notification: #121212;
+$color-border-default: #21262d;
+$color-accent: #58a6ff;
+$color-accent-emphasis: #1f6feb;
+$color-error: #da3633;
 
 @keyframes progress-bar {
     0% {
@@ -49,29 +41,4 @@ $color-error-emphasis: #da3633;
     100% {
         transform: translateX(100%);
     }
-}
-
-@font-face {
-    font-family: 'DMSans';
-    src: url('chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Regular.ttf');
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'DMSans';
-    src: url('chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Medium.ttf');
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: 'DMSans';
-    src: url('chrome-extension://__MSG_@@extension_id__/fonts/DMSans-MediumItalic.ttf');
-    font-weight: 500;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'DMSans';
-    src: url('chrome-extension://__MSG_@@extension_id__/fonts/DMSans-Bold.ttf');
-    font-weight: 700;
 }

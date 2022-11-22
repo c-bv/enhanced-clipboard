@@ -25,9 +25,9 @@ body {
     width: 325px;
     font-family: $font-family;
     line-height: 1.5;
-    background-color: $background-color;
+    background-color: $color-bg-default;
     color: $color-fg-default;
-    border: 1px solid $border-color;
+    border: 1px solid $color-border-default;
 
     header {
         position: relative;
@@ -37,8 +37,8 @@ body {
         padding: 0 1em;
         height: 4.5em;
         color: $color-header-text;
-        background-color: $primary-color;
-        border-bottom: 1px solid $border-color;
+        background-color: $color-bg-secondary;
+        border-bottom: 1px solid $color-border-default;
 
         #title-container {
             display: flex;
@@ -64,13 +64,13 @@ body {
                 // TODO: Switch ?
                 padding: 0.25em 0.5em;
                 background-color: transparent;
-                border: 1px solid $border-color;
+                border: 1px solid  $color-border-default;
                 border-radius: 2px;
                 color: $color-fg-muted;
                 cursor: pointer;
 
                 &.off {
-                    color: $accent-color;
+                    color: $color-accent;
                 }
             }
 
@@ -94,7 +94,7 @@ body {
                 width: 100%;
                 padding: .5em 1em;
                 background-color: rgba(18, 18, 18, 0.7);
-                border: 2px solid $accent-color;
+                border: 2px solid $color-accent;
                 border-width: 2px 0 2px 0;
                 z-index: 1;
 
@@ -121,7 +121,6 @@ body {
         height: calc(100% - 4.5em);
         padding: 1em;
         overflow: hidden;
-        background-color: $background-color;
 
         #disabled-layer {
             display: none;
@@ -133,7 +132,7 @@ body {
             left: 0;
             height: 100%;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: $color-bg-disabled;
             z-index: 1;
 
             &.active {
@@ -159,7 +158,7 @@ body {
                 flex: 1;
                 height: 2em;
                 padding: 0 .5em;
-                border: 1px solid $border-color;
+                border: 1px solid  $color-border-default;
                 border-radius: 2px;
                 font-size: 0.9rem;
                 background-color: transparent;
@@ -183,20 +182,6 @@ body {
 
                 &:hover {
                     opacity: 1;
-
-                    &:after {
-                        content: 'Clear Clipboard';
-                        position: absolute;
-                        top: 100%;
-                        left: 100%;
-                        transform: translate(-100%, 0);
-                        padding: .5em;
-                        background-color: $color-bg-card-hover;
-                        border-radius: 2px;
-                        font-size: .75em;
-                        white-space: nowrap;
-                        z-index: 1;
-                    }
                 }
             }
         }
@@ -212,16 +197,16 @@ body {
                 gap: .5em;
                 padding: .5em;
                 margin: 0 .25em;
-                border: 1px solid $border-color;
+                border: 1px solid  $color-border-default;
                 border-radius: 1px;
                 background-color: $color-bg-card;
                 cursor: pointer;
 
                 &:hover {
-                    background-color: $color-bg-card-hover;
+                    background-color: $color-bg-secondary;
 
                     .item-text {
-                        color: $accent-color;
+                        color: $color-accent;
                         text-decoration: underline;
                     }
                 }
