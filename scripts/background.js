@@ -9,10 +9,10 @@ chrome.runtime.onInstalled.addListener(() => {
 
 // Set badge text to number of clipboard items on startup
 chrome.runtime.onStartup.addListener(() => {
+    chrome.action.setBadgeBackgroundColor({ color: '#000000' });
     chrome.storage.sync.get(['clipboard'], (result) => {
         chrome.action.setBadgeText({ text: `${result.clipboard.length}` });
     });
-    chrome.action.setBadgeBackgroundColor({ color: '#4688F1' });
 });
 
 // Set badge text to number of clipboard items on clipboard change
@@ -42,13 +42,11 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
             });
         });
     }
-
-    if (changes.settings) {
-        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-            chrome.tabs.sendMessage(tabs[0].id, {
-                message: 'settings changed',
-                data: changes.settings.newValue
-            });
-        });
+    if (changes.enabled) {
+        changes.enabled.newValue ?
+            chrome.storage.sync.get(['clipboard'], (result) => {
+                chrome.action.setBadgeText({ text: `${result.clipboard.length}` })
+            })
+            : chrome.action.setBadgeText({ text: 'OFF' });
     }
 });

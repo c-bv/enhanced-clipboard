@@ -5,14 +5,13 @@ const renderClipboard = (search) => {
         const clipboardContainer = document.getElementById('clipboard-container');
         clipboardContainer.innerHTML = '';
 
-        clipboard.forEach((item) => {
+        clipboard.reverse().forEach((item) => {
             const itemContainer = document.createElement('div');
             itemContainer.classList.add('item-container');
 
             const deleteIcon = chrome.runtime.getURL('images/delete.svg');
-
             itemContainer.innerHTML = `
-                <div class='item-content'>
+                <div class='item-content' data-id='${item.id}'>
                     <span class='item-date'>${item.date}</span>
                     <span class='item-text'>${item.data}</span>
                 </div>
@@ -25,11 +24,11 @@ const renderClipboard = (search) => {
             const deleteButton = itemContainer.querySelector('.delete');
 
             itemContainer.addEventListener('click', () => {
-                copyItemFromClipboard(clipboard.indexOf(item));
+                copyItemFromClipboard(item.id);
             });
 
             deleteButton.addEventListener('click', () => {
-                deleteItemFromClipboard(clipboard.indexOf(item));
+                deleteItemFromClipboard(item.id);
                 itemContainer.remove();
             });
         });
@@ -40,11 +39,12 @@ const storeItem = (text) => {
     if (text === '') return;
     chrome.storage.sync.get('clipboard', ({ clipboard = [] }) => {
         const id = Math.random().toString(36).substr(2, 9);
+        const date = new Date().toLocaleString('en-GB', { day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' });
         clipboard.push({
             id: id,
-            date: new Date().toLocaleString('en-GB', { day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' }),
+            date: date,
             data: text
-        })
+        });
         chrome.storage.sync.set({ clipboard });
     });
 };
@@ -60,16 +60,16 @@ const jiraMode = (selection, mousePosition) => {
     }
 };
 
-const copyItemFromClipboard = (index) => {
+const copyItemFromClipboard = (id) => {
     chrome.storage.sync.get('clipboard', ({ clipboard = [] }) => {
-        navigator.clipboard.writeText(clipboard[index].data);
+        navigator.clipboard.writeText(clipboard.find(item => item.id === id).data);
     });
 };
 
-const deleteItemFromClipboard = (index) => {
+const deleteItemFromClipboard = (id) => {
     new Promise((resolve, reject) => {
         chrome.storage.sync.get('clipboard', ({ clipboard = [] }) => {
-            clipboard.splice(index, 1);
+            clipboard.splice(id, 1);
             chrome.storage.sync.set({ clipboard });
             resolve();
         });
