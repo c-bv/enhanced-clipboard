@@ -69,9 +69,9 @@ const copyItemFromClipboard = (id) => {
 const deleteItemFromClipboard = (id) => {
     new Promise((resolve, reject) => {
         chrome.storage.sync.get('clipboard', ({ clipboard = [] }) => {
-            clipboard.splice(id, 1);
+            clipboard.splice(clipboard.findIndex(item => item.id === id), 1);
             chrome.storage.sync.set({ clipboard });
-            resolve();
+            resolve(clipboard);
         });
     });
 };
