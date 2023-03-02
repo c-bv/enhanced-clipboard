@@ -2,7 +2,7 @@
 chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.sync.set({
         enabled: true,
-        settings: { jiraMode: false },
+        settings: { jiraMode: true },
         clipboard: []
     });
 });

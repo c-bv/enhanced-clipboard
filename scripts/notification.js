@@ -11,14 +11,16 @@ const pushNotification = (status, message) => {
         <div class='notification-content'>
             <img src=${status === 'copy' ? copyIcon : deleteIcon} />
             <span class='notification-text'>
-                ${status === 'clear' ? `${message} items deleted` : status === 'copy' ? `Copied: ${message}` : `Deleted: ${message}`}
+                ${status === 'clear' ? `${message} items deleted` : status === 'copy' ? `Copied: ${message}` : `Deleted: ${message} items`}
             </span>
         </div>
         <img src=${closeIcon} class='notification-close' />
         <div class='progress-bar ${status}'></div>
     `;
+    
     notificationsContainer.appendChild(notification);
     const close = notification.querySelector('.notification-close');
+
     close.addEventListener('click', () => {
         notification.remove();
     });
