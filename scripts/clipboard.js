@@ -52,9 +52,10 @@ const storeItem = (text) => {
 const jiraMode = (selection, mousePosition) => {
     const target = document.elementFromPoint(mousePosition.x, mousePosition.y);
     const targetClassList = target.classList;
+
     if (selection) {
-        storeItem(selection)
-    } else if (targetClassList.contains('sc-15cfu5s-1') || targetClassList.contains('css-1gd7hga')) {
+        storeItem(selection);
+    } else if (targetClassList.contains('css-1gd7hga') || target.parentElement.getAttribute('aria-describedby')?.includes('val-tooltip')) {
         navigator.clipboard.writeText(target.innerText);
         storeItem(target.innerText)
     }
@@ -81,10 +82,7 @@ const clearClipboard = () => {
 };
 
 export {
-    renderClipboard,
-    storeItem,
-    jiraMode,
-    copyItemFromClipboard,
-    deleteItemFromClipboard,
-    clearClipboard
+    clearClipboard, copyItemFromClipboard,
+    deleteItemFromClipboard, jiraMode, renderClipboard,
+    storeItem
 };
